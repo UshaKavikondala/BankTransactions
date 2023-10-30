@@ -5,7 +5,7 @@ Background:
     Given Account Number is 1001
 
 	
-@tag1
+@Smoke @Crate
 Scenario: Create Account
 	Given Account Initial Balance is $1000
     And Account name is "Somesh Rao"
@@ -13,7 +13,7 @@ Scenario: Create Account
     When Create a new account
     Then Verify Account Creation
 
-@tag2
+@Smoke @Create
 Scenario: Create Account With Minimum Balance Less Than Minimum Required
 	Given Account Initial Balance is $99
     And Account name is "Nitesh Kumar"
@@ -21,8 +21,8 @@ Scenario: Create Account With Minimum Balance Less Than Minimum Required
     When Create a new account
     Then Verify Account Creation
 
-@tag3
-Scenario: Create Multiple Accounts
+@Smoke @Create
+Scenario Outline: Create Multiple Accounts
 	Given Account Initial Balance is $<InitialBalance>
     And Account name is "<AccountName>"
     And Address is "<Address>"
@@ -35,7 +35,7 @@ Scenario: Create Multiple Accounts
     | 1500.00        | Khushboo    | 456 Elm St,Noida |
     | 2000.00        | Nitesh Kumar| 789 ,Nagpur      |
 
-@tag4
+@Smoke @Create
 Scenario: Create Account With Balance Greater Than Transaction Limit
 	Given Account Initial Balance is $10,001
     And Account name is "Nitesh Kumar"
@@ -43,7 +43,7 @@ Scenario: Create Account With Balance Greater Than Transaction Limit
     When Create a new account
     Then Verify Account Creation
 
-@tag5
+@Smoke @Create
 Scenario: Create Account With Negative Balance
 	Given Account Initial Balance is $-200
     And Account name is "Satish Kumar"
@@ -51,78 +51,117 @@ Scenario: Create Account With Negative Balance
     When Create a new account
     Then Verify Account Creation
 
-
-@tag6
+@Smoke @Deposit
 Scenario: Deposit Amount
     And Balance Entered is $100
-    When "Deposit" Amount to Account
-    Then Verify the Balance in the Account After "Deposit"
-@tag7
-Scenario: Deposit A Negative Amount
-    And Balance Entered is $-100
-    When "Deposit" Amount to Account
-    Then Verify the Balance in the Account After "Deposit"
-@tag8
-Scenario: Deposit Amount Greater Than Transaction Limit
-    And Balance Entered is $10,001
-    When "Deposit" Amount to Account
+    When "Deposit" Amount
     Then Verify the Balance in the Account After "Deposit"
 
-@tag9
+@Smoke @Deposit
+Scenario: Deposit A Negative Amount
+    And Balance Entered is $-100
+    When "Deposit" Amount
+    Then Verify the Balance in the Account After "Deposit"
+
+@Smoke @Deposit
+Scenario: Deposit Amount Greater Than Transaction Limit
+    And Balance Entered is $10,001
+    When "Deposit" Amount
+    Then Verify the Balance in the Account After "Deposit"
+
+@Smoke @Deposit
 Scenario: Deposit Amount To NonExisting Account
 	Given Account Number is 23001
     And Balance Entered is $200
-    When "Deposit" Amount to Account
+    When "Deposit" Amount
     Then Verify the Balance in the Account After "Deposit"
 
-
-@tag10
+@Smoke @Withdraw
 Scenario: Withdraw Amount
     And Balance Entered is $100
-    When "Withdraw" Amount to Account
+    When "Withdraw" Amount
     Then Verify the Balance in the Account After "Withdraw"
 
-@tag11
+@Smoke @Withdraw
 Scenario: Withdraw NegativeAmount
     And Balance Entered is $-100
-    When "Withdraw" Amount to Account
+    When "Withdraw" Amount
     Then Verify the Balance in the Account After "Withdraw"
 
-@tag12
+@Smoke @Withdraw
 Scenario: Withdraw Amount Greater Than the Account Balance
     And Balance Entered is Greater Than the Account Balance
-    When "Withdraw" Amount to Account
+    When "Withdraw" Amount
     Then Verify the Balance in the Account After "Withdraw"
-@tag13
+
+@Smoke @Withdraw
+Scenario: Withdraw Amount more than 90% of the Account Balance
+    And Balance in the Account is More than the Percent allowed to withdraw.
+    When "Withdraw" Amount
+    Then Verify the Balance in the Account After "Withdraw"
+
+@Smoke @Withdraw
 Scenario: Withdraw Amount From NonExisting Account
 	Given Account Number is 23001
     And Balance Entered is $100
-    When "Withdraw" Amount to Account
+    When "Withdraw" Amount
     Then Verify the Balance in the Account After "Withdraw"
 
-@tag14
+@Smoke @Withdraw
 Scenario: Withdraw Amount With A Balance Less Than Minimum Required
     And Balance Entered is The Amount Less Than Minimum Required.
-    When "Withdraw" Amount to Account
+    When "Withdraw" Amount
     Then Verify the Balance in the Account After "Withdraw"
 
-@tag15
+@Smoke @Withdraw
+Scenario: Withdraw Amount If Balance is Less then $100
+    And Existing Balance is Less Than $100 
+    When "Withdraw" Amount
+    Then Verify the Balance in the Account After "Withdraw"
+
+@Smoke @Delete
 Scenario: Delete Account
 	When Delete Account
     Then Verify the Account id Deleted
    
-@tag16
+@Smoke @Delete
 Scenario: Delete Nonexisting Acoount 
 	Given Account Number is 23001
     When Delete Account
     Then Verify the Account id Deleted
 
-@tag17
+@Smoke @Delete
+Scenario Outline: Delete Multiple Accounts
+	Given Account Number is $<AccountNumber>
+    When Delete Account
+    Then Verify the Account id Deleted
+
+    Examples:
+    | AccountNumber |
+    | 1001          |
+    | 1002          |
+    | 1003          |
+
+
+@Smoke @View
 Scenario: View the Required Account Details 
     When  Get Account Details
     Then  Verify account details 
     
-@tag18
+
+@Smoke @View
+Scenario Outline: View Multiple Accounts
+    Given Account Number is $<AccountNumber>
+    When  Get Account Details
+    Then  Verify account details
+   
+   Examples:
+    | AccountNumber |
+    | 1001          |
+    | 1002          |
+    | 1003          |
+
+@Smoke @View
 Scenario: View Account Details that doesn't exist 
     Given Account Number is 23001
     When  Get Account Details

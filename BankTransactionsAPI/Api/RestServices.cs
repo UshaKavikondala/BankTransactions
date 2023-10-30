@@ -17,12 +17,13 @@ namespace BankTransactionsAPI.Api
 {
     public class RestServices
     {
-        public RestClient Client { get; private set; }
-        public RestRequest request { get; private set; }
+        public RestClient Client { get; private set; } 
+        public RestRequest request { get; private set; } 
         public int AccountNumber;
-        public string AccountName;
-        public double Balance;
-        public string Address;
+        public string AccountName = string.Empty;
+        public double Balance =0;
+        public string Address=string.Empty;
+        CustomerDetails customer;
 
 
         public void BankApiServices()
@@ -44,9 +45,8 @@ namespace BankTransactionsAPI.Api
         }
         public int CreateAccountAPI(double balance, string accountName, string address)
         {
-           
             // Defining the request body with customer data
-            var customerDTO = new Account
+            var customerDTO = new CustomerDetails
             {
                 AccountName = accountName,
                 Balance = balance,
@@ -61,14 +61,20 @@ namespace BankTransactionsAPI.Api
             request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
             //process the request
             var response = Client.Execute(request);
+            
             //Deserialize the response
-            var createdAccount = JsonConvert.DeserializeObject<Account>(response.Content);
+            if (!string.IsNullOrEmpty(response.Content))
+            {
+                customer = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
+            }
+            else
+                throw new Exception("Json Response is Empty");
 
             if (response.IsSuccessful)
             {
                 Assert.AreEqual(200, (int)response.StatusCode);
-                Console.WriteLine($"New account created with account number: {createdAccount.AccountNumber}");
-                return createdAccount.AccountNumber;
+                Console.WriteLine($"New account created with account number: {customer.AccountNumber}");
+                return customer.AccountNumber;
             }
             else
             {
@@ -81,7 +87,7 @@ namespace BankTransactionsAPI.Api
         public double DepositORWithDrawAmount(int accountNumber, double balance,string transactionType)
         {
             // Defining the request body with customer data
-            var customerDTO = new Account
+            var customerDTO = new CustomerDetails
             {
                 AccountNumber = accountNumber,
                 Balance = balance
@@ -103,7 +109,7 @@ namespace BankTransactionsAPI.Api
             request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
             var response = Client.Execute(request);
             //Deserialize the response
-            var createdAccount = JsonConvert.DeserializeObject<Account>(response.Content);
+            var createdAccount = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
 
             if (response.IsSuccessful)
             {
@@ -122,7 +128,7 @@ namespace BankTransactionsAPI.Api
 
         }
         
-        public Account? getAccount(int accountNumber)
+        public CustomerDetails? getAccount(int accountNumber)
         {
             var request = new RestRequest(Data.viewResource + $"/{accountNumber}", Method.Get);
             var response = Client.Execute(request);
@@ -130,7 +136,7 @@ namespace BankTransactionsAPI.Api
             if (response.IsSuccessful)
             {
                 // Parse and handle the response as needed
-                Account customer = Newtonsoft.Json.JsonConvert.DeserializeObject<Account>(response.Content);
+                CustomerDetails customer = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
                 Assert.AreEqual(200, (int)response.StatusCode);
                 Console.WriteLine($"Account Number: {customer.AccountNumber}");
                 Console.WriteLine($"Account Name: {customer.AccountName}");

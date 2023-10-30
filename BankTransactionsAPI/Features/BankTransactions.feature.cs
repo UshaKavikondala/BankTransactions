@@ -84,11 +84,13 @@ namespace BankTransactionsAPI.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create Account")]
-        [NUnit.Framework.CategoryAttribute("tag1")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Crate")]
         public void CreateAccount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag1"};
+                    "Smoke",
+                    "Crate"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Account", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 9
@@ -125,11 +127,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create Account With Minimum Balance Less Than Minimum Required")]
-        [NUnit.Framework.CategoryAttribute("tag2")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Create")]
         public void CreateAccountWithMinimumBalanceLessThanMinimumRequired()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag2"};
+                    "Smoke",
+                    "Create"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Account With Minimum Balance Less Than Minimum Required", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 17
@@ -166,14 +170,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create Multiple Accounts")]
-        [NUnit.Framework.CategoryAttribute("tag3")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Create")]
         [NUnit.Framework.TestCaseAttribute("1000.00", "Somesh Rao", "123 Main St,Miami", null)]
         [NUnit.Framework.TestCaseAttribute("1500.00", "Khushboo", "456 Elm St,Noida", null)]
         [NUnit.Framework.TestCaseAttribute("2000.00", "Nitesh Kumar", "789 ,Nagpur", null)]
         public void CreateMultipleAccounts(string initialBalance, string accountName, string address, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "tag3"};
+                    "Smoke",
+                    "Create"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -218,11 +224,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create Account With Balance Greater Than Transaction Limit")]
-        [NUnit.Framework.CategoryAttribute("tag4")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Create")]
         public void CreateAccountWithBalanceGreaterThanTransactionLimit()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag4"};
+                    "Smoke",
+                    "Create"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Account With Balance Greater Than Transaction Limit", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 39
@@ -259,11 +267,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Create Account With Negative Balance")]
-        [NUnit.Framework.CategoryAttribute("tag5")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Create")]
         public void CreateAccountWithNegativeBalance()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag5"};
+                    "Smoke",
+                    "Create"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create Account With Negative Balance", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 47
@@ -300,14 +310,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Deposit Amount")]
-        [NUnit.Framework.CategoryAttribute("tag6")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Deposit")]
         public void DepositAmount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag6"};
+                    "Smoke",
+                    "Deposit"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deposit Amount", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 56
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -320,13 +332,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 57
+#line 56
     testRunner.And("Balance Entered is $100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 58
-    testRunner.When("\"Deposit\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 57
+    testRunner.When("\"Deposit\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 59
+#line 58
     testRunner.Then("Verify the Balance in the Account After \"Deposit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -335,11 +347,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Deposit A Negative Amount")]
-        [NUnit.Framework.CategoryAttribute("tag7")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Deposit")]
         public void DepositANegativeAmount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag7"};
+                    "Smoke",
+                    "Deposit"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deposit A Negative Amount", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 61
@@ -359,7 +373,7 @@ this.FeatureBackground();
     testRunner.And("Balance Entered is $-100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 63
-    testRunner.When("\"Deposit\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("\"Deposit\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 64
     testRunner.Then("Verify the Balance in the Account After \"Deposit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -370,14 +384,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Deposit Amount Greater Than Transaction Limit")]
-        [NUnit.Framework.CategoryAttribute("tag8")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Deposit")]
         public void DepositAmountGreaterThanTransactionLimit()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag8"};
+                    "Smoke",
+                    "Deposit"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deposit Amount Greater Than Transaction Limit", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 66
+#line 67
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -390,13 +406,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 67
+#line 68
     testRunner.And("Balance Entered is $10,001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 68
-    testRunner.When("\"Deposit\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 69
+    testRunner.When("\"Deposit\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 70
     testRunner.Then("Verify the Balance in the Account After \"Deposit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -405,14 +421,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Deposit Amount To NonExisting Account")]
-        [NUnit.Framework.CategoryAttribute("tag9")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Deposit")]
         public void DepositAmountToNonExistingAccount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag9"};
+                    "Smoke",
+                    "Deposit"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Deposit Amount To NonExisting Account", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 72
+#line 73
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -425,16 +443,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 73
+#line 74
  testRunner.Given("Account Number is 23001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 74
+#line 75
     testRunner.And("Balance Entered is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 75
-    testRunner.When("\"Deposit\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
 #line 76
+    testRunner.When("\"Deposit\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 77
     testRunner.Then("Verify the Balance in the Account After \"Deposit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -443,11 +461,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Withdraw Amount")]
-        [NUnit.Framework.CategoryAttribute("tag10")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Withdraw")]
         public void WithdrawAmount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag10"};
+                    "Smoke",
+                    "Withdraw"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 80
@@ -467,7 +487,7 @@ this.FeatureBackground();
     testRunner.And("Balance Entered is $100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 82
-    testRunner.When("\"Withdraw\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 83
     testRunner.Then("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -478,11 +498,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Withdraw NegativeAmount")]
-        [NUnit.Framework.CategoryAttribute("tag11")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Withdraw")]
         public void WithdrawNegativeAmount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag11"};
+                    "Smoke",
+                    "Withdraw"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw NegativeAmount", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 86
@@ -502,7 +524,7 @@ this.FeatureBackground();
     testRunner.And("Balance Entered is $-100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 88
-    testRunner.When("\"Withdraw\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 89
     testRunner.Then("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -513,11 +535,13 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Withdraw Amount Greater Than the Account Balance")]
-        [NUnit.Framework.CategoryAttribute("tag12")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Withdraw")]
         public void WithdrawAmountGreaterThanTheAccountBalance()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag12"};
+                    "Smoke",
+                    "Withdraw"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount Greater Than the Account Balance", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 92
@@ -537,7 +561,7 @@ this.FeatureBackground();
     testRunner.And("Balance Entered is Greater Than the Account Balance", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 94
-    testRunner.When("\"Withdraw\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 95
     testRunner.Then("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -547,15 +571,17 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Withdraw Amount From NonExisting Account")]
-        [NUnit.Framework.CategoryAttribute("tag13")]
-        public void WithdrawAmountFromNonExistingAccount()
+        [NUnit.Framework.DescriptionAttribute("Withdraw Amount more than 90% of the Account Balance")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Withdraw")]
+        public void WithdrawAmountMoreThan90OfTheAccountBalance()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag13"};
+                    "Smoke",
+                    "Withdraw"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount From NonExisting Account", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 97
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount more than 90% of the Account Balance", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 98
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -568,14 +594,11 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 98
- testRunner.Given("Account Number is 23001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 99
-    testRunner.And("Balance Entered is $100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("Balance in the Account is More than the Percent allowed to withdraw.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 100
-    testRunner.When("\"Withdraw\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 101
     testRunner.Then("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -585,14 +608,16 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Withdraw Amount With A Balance Less Than Minimum Required")]
-        [NUnit.Framework.CategoryAttribute("tag14")]
-        public void WithdrawAmountWithABalanceLessThanMinimumRequired()
+        [NUnit.Framework.DescriptionAttribute("Withdraw Amount From NonExisting Account")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Withdraw")]
+        public void WithdrawAmountFromNonExistingAccount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag14"};
+                    "Smoke",
+                    "Withdraw"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount With A Balance Less Than Minimum Required", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount From NonExisting Account", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 104
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -607,12 +632,89 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 105
-    testRunner.And("Balance Entered is The Amount Less Than Minimum Required.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("Account Number is 23001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 106
-    testRunner.When("\"Withdraw\" Amount to Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.And("Balance Entered is $100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 107
+    testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 108
+    testRunner.Then("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Withdraw Amount With A Balance Less Than Minimum Required")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Withdraw")]
+        public void WithdrawAmountWithABalanceLessThanMinimumRequired()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Smoke",
+                    "Withdraw"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount With A Balance Less Than Minimum Required", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 111
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 112
+    testRunner.And("Balance Entered is The Amount Less Than Minimum Required.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 113
+    testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 114
+    testRunner.Then("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Withdraw Amount If Balance is Less then $100")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Withdraw")]
+        public void WithdrawAmountIfBalanceIsLessThen100()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "Smoke",
+                    "Withdraw"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Withdraw Amount If Balance is Less then $100", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 117
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 118
+    testRunner.And("Existing Balance is Less Than $100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 119
+    testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 120
     testRunner.Then("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -621,14 +723,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Delete Account")]
-        [NUnit.Framework.CategoryAttribute("tag15")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Delete")]
         public void DeleteAccount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag15"};
+                    "Smoke",
+                    "Delete"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Account", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 110
+#line 123
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -641,10 +745,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 111
+#line 124
  testRunner.When("Delete Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 112
+#line 125
     testRunner.Then("Verify the Account id Deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -653,14 +757,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Delete Nonexisting Acoount")]
-        [NUnit.Framework.CategoryAttribute("tag16")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Delete")]
         public void DeleteNonexistingAcoount()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag16"};
+                    "Smoke",
+                    "Delete"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Nonexisting Acoount", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 115
+#line 128
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -673,13 +779,59 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 116
+#line 129
  testRunner.Given("Account Number is 23001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 117
+#line 130
     testRunner.When("Delete Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 118
+#line 131
+    testRunner.Then("Verify the Account id Deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Delete Multiple Accounts")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("Delete")]
+        [NUnit.Framework.TestCaseAttribute("1001", null)]
+        [NUnit.Framework.TestCaseAttribute("1002", null)]
+        [NUnit.Framework.TestCaseAttribute("1003", null)]
+        public void DeleteMultipleAccounts(string accountNumber, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Smoke",
+                    "Delete"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("AccountNumber", accountNumber);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Multiple Accounts", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 134
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 135
+ testRunner.Given(string.Format("Account Number is ${0}", accountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 136
+    testRunner.When("Delete Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 137
     testRunner.Then("Verify the Account id Deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -688,14 +840,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("View the Required Account Details")]
-        [NUnit.Framework.CategoryAttribute("tag17")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("View")]
         public void ViewTheRequiredAccountDetails()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag17"};
+                    "Smoke",
+                    "View"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View the Required Account Details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 121
+#line 147
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -708,10 +862,56 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 122
+#line 148
     testRunner.When("Get Account Details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 123
+#line 149
+    testRunner.Then("Verify account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("View Multiple Accounts")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("View")]
+        [NUnit.Framework.TestCaseAttribute("1001", null)]
+        [NUnit.Framework.TestCaseAttribute("1002", null)]
+        [NUnit.Framework.TestCaseAttribute("1003", null)]
+        public void ViewMultipleAccounts(string accountNumber, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "Smoke",
+                    "View"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            argumentsOfScenario.Add("AccountNumber", accountNumber);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View Multiple Accounts", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 153
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 4
+this.FeatureBackground();
+#line hidden
+#line 154
+    testRunner.Given(string.Format("Account Number is ${0}", accountNumber), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 155
+    testRunner.When("Get Account Details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 156
     testRunner.Then("Verify account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -720,14 +920,16 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("View Account Details that doesn\'t exist")]
-        [NUnit.Framework.CategoryAttribute("tag18")]
+        [NUnit.Framework.CategoryAttribute("Smoke")]
+        [NUnit.Framework.CategoryAttribute("View")]
         public void ViewAccountDetailsThatDoesntExist()
         {
             string[] tagsOfScenario = new string[] {
-                    "tag18"};
+                    "Smoke",
+                    "View"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("View Account Details that doesn\'t exist", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 126
+#line 165
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -740,13 +942,13 @@ this.ScenarioInitialize(scenarioInfo);
 #line 4
 this.FeatureBackground();
 #line hidden
-#line 127
+#line 166
     testRunner.Given("Account Number is 23001", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 128
+#line 167
     testRunner.When("Get Account Details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 129
+#line 168
     testRunner.Then("Verify account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

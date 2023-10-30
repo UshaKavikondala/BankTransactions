@@ -16,7 +16,7 @@ namespace BankTransactionsAPI.StepDefinitions
         double balanceAfterUpdate = 0;
         bool flag;
         private List<int> accountNumbers = new List<int>();
-        Account customer;
+        CustomerDetails customer;
 
         public BankTransactionsStepDefinitions()
         {
@@ -51,7 +51,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [Then(@"Verify Account Creation")]
         public void ThenVerifyAccountCreation()
         {
-            if (expectedAccountNumber == 0)
+            if (expectedAccountNumber==0)
             {
                 Assert.Zero(expectedAccountNumber);
                 Console.WriteLine("Account is not created "); 
@@ -59,7 +59,7 @@ namespace BankTransactionsAPI.StepDefinitions
             else
             {
                 Assert.NotZero(expectedAccountNumber);
-                Account customer = services.getAccount(expectedAccountNumber);
+                customer = services.getAccount(expectedAccountNumber);
                 Assert.Equals(expectedAccountNumber, customer.AccountNumber);
                 Assert.Equals(services.Balance, customer.Balance);
                 Assert.Equals(services.Address, customer.Address);
@@ -83,14 +83,14 @@ namespace BankTransactionsAPI.StepDefinitions
             services.Balance = balance;
         }
 
-        [When(@"""([^""]*)"" Amount to Account")]
-        public void WhenAmountToAccount(string TransactionType)
+        [When(@"""([^""]*)"" Amount")]
+        public void WhenAmount(string TransactionType)
         {
             //Deposit/WithDraw Amount from Account
             if (TransactionType.ToUpper().Equals("DEPOSIT"))
             {
 
-                Account customer = services.getAccount(services.AccountNumber);
+                customer = services.getAccount(services.AccountNumber);
                 balanceBeforeUpdate = customer.Balance;
                 balanceAfterUpdate = services.DepositORWithDrawAmount(services.AccountNumber, services.Balance, TransactionType);
 
@@ -98,7 +98,7 @@ namespace BankTransactionsAPI.StepDefinitions
             if (TransactionType.ToUpper().Equals("WITHDRAW"))
             {
 
-                Account customer = services.getAccount(services.AccountNumber);
+                customer = services.getAccount(services.AccountNumber);
                 balanceBeforeUpdate = customer.Balance;
                 balanceAfterUpdate = services.DepositORWithDrawAmount(services.AccountNumber, services.Balance, TransactionType);
 
@@ -152,7 +152,7 @@ namespace BankTransactionsAPI.StepDefinitions
         public void GivenBalanceEnteredIsGreaterThanTheAccountBalance()
         {
 
-            Account customer = services.getAccount(services.AccountNumber);
+            customer = services.getAccount(services.AccountNumber);
             balanceBeforeUpdate = customer.Balance;
             services.Balance = balanceBeforeUpdate+100;
 
@@ -161,7 +161,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [Given(@"Balance Entered is The Amount Less Than Minimum Required\.")]
         public void GivenBalanceEnteredIsTheAmountLessThanMinimumRequired_()
         {
-            Account customer = services.getAccount(services.AccountNumber);
+            customer = services.getAccount(services.AccountNumber);
             balanceBeforeUpdate = customer.Balance;
             services.Balance = balanceBeforeUpdate -10;
         }
@@ -190,6 +190,32 @@ namespace BankTransactionsAPI.StepDefinitions
 
             }
         }
+        [Given(@"Balance in the Account is More than the Percent allowed to withdraw\.")]
+        public void GivenBalanceInTheAccountIsMoreThanThePercentAllowedToWithdraw_()
+        {
+            try
+            {
+                customer = services.getAccount(expectedAccountNumber);
+                double percentAmount = customer.Balance * 0.9;
+                services.Balance = percentAmount + 10;
+            }catch(NullReferenceException ex) { Console.WriteLine(ex); }
+
+        }
+        [Given(@"Existing Balance is Less Than \$(.*)")]
+        public void GivenExistingBalanceIsLessThan(double balance)
+        {
+            customer = services.getAccount(expectedAccountNumber);
+            if (customer.Balance < 100)
+            {
+                services.Balance = balance - 90;
+            }
+            else
+            {
+                balanceBeforeUpdate = customer.Balance;
+                services.Balance = balanceBeforeUpdate - 10;
+            }
+        }
+
 
     }
 }

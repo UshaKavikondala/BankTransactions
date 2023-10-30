@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankTransactionsAPI.Models
 {
-    public class Account
+    public class CustomerDetails
     {
         public int AccountNumber { get; set; }
         public string? AccountName { get; set; }

@@ -2,9 +2,6 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="Hooks1.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Hooks\BankTransactionsHooks.cs">
       <SubType>Code</SubType>
     </Compile>

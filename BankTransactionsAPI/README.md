@@ -44,11 +44,15 @@ The Framework built with below main packages
 - Withdraw Amount to Account with Valid Values
 - Withdraw NegativeAmount
 - Withdraw Amount Greater Than the Account Balance
+- Withdraw Amount more than 90% of the Account Balance
 - Withdraw Amount From NonExisting Account
 - Withdraw Amount With A Balance Less Than Minimum Required
+- Withdraw Amount If Balance is Less then $100
 - Delete Account
 - Delete Nonexisting Acoount 
+- Delete Multiple Accounts
 - View the Required Account Details 
+- View Multiple Accounts
 - View Account Details that doesn't exist 
 
 
