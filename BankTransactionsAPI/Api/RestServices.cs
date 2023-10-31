@@ -18,13 +18,16 @@ namespace BankTransactionsAPI.Api
     public class RestServices
     {
         public RestClient Client { get; private set; } 
-        public RestRequest request { get; private set; } 
-        public int AccountNumber;
-        public string AccountName = string.Empty;
-        public double Balance =0;
-        public string Address=string.Empty;
-        CustomerDetails customer;
 
+        public RestRequest request { get; private set; }
+        public int AccountNumber = 0;
+        public double Balance = 0;
+        public string AccountName = string.Empty;
+        public string Address = string.Empty;
+        public RestServices() { 
+            Client = new RestClient();
+            request = new RestRequest();
+        }
 
         public void BankApiServices()
         {
@@ -39,11 +42,10 @@ namespace BankTransactionsAPI.Api
             {
                 throw new ArgumentException("Base URL is not defined in the configuration.");
             }
-
+            // Define Request Client
             Client = new RestClient(baseUrl);
-
         }
-        public int CreateAccountAPI(double balance, string accountName, string address)
+        public RestResponse CreateAccountAPI(double balance, string accountName, string address)
         {
             // Defining the request body with customer data
             var customerDTO = new CustomerDetails
@@ -52,6 +54,7 @@ namespace BankTransactionsAPI.Api
                 Balance = balance,
                 Address = address
             };
+            
             // Serializing the DTO to JSON
             string jsonBody = JsonConvert.SerializeObject(customerDTO);
 
@@ -59,32 +62,14 @@ namespace BankTransactionsAPI.Api
             var request = new RestRequest(Data.createResource, Method.Post);
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
+            
             //process the request
             var response = Client.Execute(request);
             
-            //Deserialize the response
-            if (!string.IsNullOrEmpty(response.Content))
-            {
-                customer = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
-            }
-            else
-                throw new Exception("Json Response is Empty");
-
-            if (response.IsSuccessful)
-            {
-                Assert.AreEqual(200, (int)response.StatusCode);
-                Console.WriteLine($"New account created with account number: {customer.AccountNumber}");
-                return customer.AccountNumber;
-            }
-            else
-            {
-                // Handling the error response
-                Console.WriteLine("Failed to create an account.");
-                return 0;
-            }
-
+            //return response
+            return response;
         }
-        public double DepositORWithDrawAmount(int accountNumber, double balance,string transactionType)
+        public RestResponse DepositORWithDrawAmount(int accountNumber, double balance,string transactionType)
         {
             // Defining the request body with customer data
             var customerDTO = new CustomerDetails
@@ -92,10 +77,10 @@ namespace BankTransactionsAPI.Api
                 AccountNumber = accountNumber,
                 Balance = balance
             };
+            
             // Serializing the DTO to JSON
             string jsonBody = JsonConvert.SerializeObject(customerDTO);
-
-            
+                        
             //Sending the JSON as the request body
             if (transactionType.ToUpper().Equals("DEPOSIT"))
             {
@@ -107,70 +92,36 @@ namespace BankTransactionsAPI.Api
             }
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("application/json", jsonBody, ParameterType.RequestBody);
+
+            //process the request
             var response = Client.Execute(request);
-            //Deserialize the response
-            var createdAccount = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
-
-            if (response.IsSuccessful)
-            {
-                // Handle the success response
-                Assert.AreEqual(200, (int)response.StatusCode);
-                Console.WriteLine("Balance is updated successfully.");
-                return createdAccount.Balance;
-            }
-            else
-            {
-                // Handle the error response
-                Console.WriteLine("Failed to update the Balance.");
-                Assert.Fail("Failed to update the Balance.");
-                return 0;
-            }
-
+           
+            //return response
+            return response;    
         }
         
-        public CustomerDetails? getAccount(int accountNumber)
+        public RestResponse getAccount(int accountNumber)
         {
+            // Defining the request
             var request = new RestRequest(Data.viewResource + $"/{accountNumber}", Method.Get);
+
+            //process the request
             var response = Client.Execute(request);
 
-            if (response.IsSuccessful)
-            {
-                // Parse and handle the response as needed
-                CustomerDetails customer = Newtonsoft.Json.JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
-                Assert.AreEqual(200, (int)response.StatusCode);
-                Console.WriteLine($"Account Number: {customer.AccountNumber}");
-                Console.WriteLine($"Account Name: {customer.AccountName}");
-                Console.WriteLine($"Balance: {customer.Balance}");
-                Console.WriteLine($"Address: {customer.Address}");
-                return customer;
-            }
-            else
-            {
-                // Handle the error response
-                Console.WriteLine("Failed to retrieve account details.");
-                return null;
-            }
-
+            //Return response
+            return response;
         }
-        public bool DeleteAccount(int accountNumber) {
+        
+        public RestResponse DeleteAccount(int accountNumber)
+        {
+            // Defining the request
             var request = new RestRequest(Data.deleteResource + $"/{accountNumber}", Method.Delete);
 
+            //process the request
             var response = Client.Execute(request);
 
-            if (response.IsSuccessful)
-            {
-                // Handle the success response
-                Assert.AreEqual(200, (int)response.StatusCode);
-                Console.WriteLine("Account deleted successfully.");
-                return true;
-            }
-            else
-            {
-                // Handle the error response
-                Console.WriteLine("Failed to delete the account or Account does not exist");
-                return false;
-            }
-
+            //return response
+            return response;
         }
     }
 }
