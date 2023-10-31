@@ -119,7 +119,7 @@ Scenario: Delete Account with Valid Account Number
     Then  Verify the Account id Deleted
    
 @Smoke @Delete
-Scenario: Delete Nonexisting Acoount 
+Scenario: Delete Nonexisting Account 
 	Given Account Number is 23001
     When  Delete Account
     Then  Verify the Account id Deleted

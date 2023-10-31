@@ -691,16 +691,16 @@ this.FeatureBackground();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Delete Nonexisting Acoount")]
+        [NUnit.Framework.DescriptionAttribute("Delete Nonexisting Account")]
         [NUnit.Framework.CategoryAttribute("Smoke")]
         [NUnit.Framework.CategoryAttribute("Delete")]
-        public void DeleteNonexistingAcoount()
+        public void DeleteNonexistingAccount()
         {
             string[] tagsOfScenario = new string[] {
                     "Smoke",
                     "Delete"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Nonexisting Acoount", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete Nonexisting Account", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 122
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
