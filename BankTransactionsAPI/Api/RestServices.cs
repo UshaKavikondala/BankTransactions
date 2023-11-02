@@ -1,17 +1,8 @@
 ﻿using BankTransactionsAPI.Models;
 using RestSharp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BankTransactionsAPI.Utilities;
-using System.ComponentModel.Design;
-using NUnit.Framework;
 using System.Configuration;
-using BankTransactionsAPI;
 using Newtonsoft.Json;
-using System.Net;
 
 namespace BankTransactionsAPI.Api
 {

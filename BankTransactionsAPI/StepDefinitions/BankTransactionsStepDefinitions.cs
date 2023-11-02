@@ -208,6 +208,8 @@ namespace BankTransactionsAPI.StepDefinitions
                     Assert.AreEqual(balanceBeforeUpdate - services.Balance, balanceAfterUpdate, "Amount is Successfully Withdrawl from the account");
                 }
             }
+            else
+                throw new Exception("Account Number does not exist or Not able to retrieve account details");
         }
 
         [Then(@"Verify the Account id Deleted")]
@@ -266,11 +268,18 @@ namespace BankTransactionsAPI.StepDefinitions
         [Then(@"Verify the Account")]
         public void ThenVerifyTheAccount()
         {
-            if (response.IsSuccessful)
+            if (!response.IsSuccessful)
             {
                 Assert.AreEqual(400, (int)response.StatusCode);
                 Console.WriteLine("Failed to Delete the Account/ Account Number does not exist");
             }
         }
+
+        [Then(@"Verify the response code is \$(.*)")]
+        public void ThenVerifyTheResponseCodeIs(int responseCode)
+        {
+            Assert.Equals(responseCode,(int)response.StatusCode);
+        }
+
     }
 }
