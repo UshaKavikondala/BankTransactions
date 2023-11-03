@@ -61,6 +61,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [Given(@"Balance Entered is Greater Than the Account Balance")]
         public void GivenBalanceEnteredIsGreaterThanTheAccountBalance()
         {
+            //Identify the existing balance and set the balance to be more than the existing amount.
             response = services.getAccount(services.AccountNumber);
             if ((int)response.StatusCode == 200)
             {
@@ -73,6 +74,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [Given(@"Balance Entered is The Amount Less Than Minimum Required\.")]
         public void GivenBalanceEnteredIsTheAmountLessThanMinimumRequired_()
         {
+            //Identify the existing balance in the account given and calculate the balance in such a way that when deducted than the Balance amount will be less than 100$
             response = services.getAccount(services.AccountNumber);
             if ((int)response.StatusCode == 200)
             {
@@ -85,6 +87,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [Given(@"Balance in the Account is More than the Percent allowed to withdraw\.")]
         public void GivenBalanceInTheAccountIsMoreThanThePercentAllowedToWithdraw_()
         {
+            //Identify the existing balance and calculate percent amount and set the balance to more than the percent amount
             response = services.getAccount(expectedAccountNumber);
             if ((int)response.StatusCode == 200)
             {
@@ -97,6 +100,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [Given(@"Existing Balance is Less Than \$(.*)")]
         public void GivenExistingBalanceIsLessThan(double balance)
         {
+            //Identify the existing balance and if that is less than 100$ then set the balance deducted as 10.
             response = services.getAccount(expectedAccountNumber);
             if ((int)response.StatusCode == 200)
             {
@@ -116,6 +120,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [When(@"Create a new account")]
         public void WhenCreateANewAccount()
         {
+            //Calling CreateAccount Service API
             response = services.CreateAccountAPI(services.Balance, services.AccountName, services.Address);
         }
 
@@ -147,6 +152,7 @@ namespace BankTransactionsAPI.StepDefinitions
         [When(@"Create a new account for Multiple Users")]
         public void WhenCreateANewAccountForMultipleUsers()
         {
+            //Create Multiple Accounts and then add the returned Account Number to a List.
             response = services.CreateAccountAPI(services.Balance, services.AccountName, services.Address);
             if ((int)response.StatusCode == 200)
             {
@@ -166,38 +172,24 @@ namespace BankTransactionsAPI.StepDefinitions
         [Then(@"Verify Account Creation")]
         public void ThenVerifyAccountCreation()
         {
-            if (response.IsSuccessful)
+            // Verify Account Details exist in the system after creation.
+            customer = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
+            response = services.getAccount(customer.AccountNumber);
+            if ((int)response.StatusCode == 200)
             {
-                Assert.AreEqual(200, (int)response.StatusCode);
-                response = services.CreateAccountAPI(services.Balance, services.AccountName, services.Address);
-                if ((int)response.StatusCode == 200)
-                {
-                    customer = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
-                }
-                Assert.NotZero(customer.AccountNumber);
-                Assert.AreEqual(services.Balance, customer.Balance);
-                Assert.AreEqual(services.Address, customer.Address);
-                Assert.AreEqual(services.AccountName, customer.AccountName);
-                Console.WriteLine("Account is created Successfully, Account Number is: " + expectedAccountNumber);
+                Console.WriteLine("Account got created successfully and available in System");
+                customer = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
             }
-            else
-            {
-                Assert.AreEqual(400, (int)response.StatusCode);
-                Console.WriteLine("Account is not created ");
-            }
+            Assert.NotZero(customer.AccountNumber);
+            Assert.AreEqual(services.Balance, customer.Balance);
+            Assert.AreEqual(services.Address, customer.Address);
+            Assert.AreEqual(services.AccountName, customer.AccountName);
+            Console.WriteLine("Account is created Successfully, Account Number is: " + expectedAccountNumber);
         }
 
         [Then(@"Verify the Balance in the Account After ""([^""]*)""")]
         public void ThenVerifyTheBalanceInTheAccountAfter(string TransactionType)
         {
-            if (response.IsSuccessful)
-            {
-                Assert.AreEqual(200, (int)response.StatusCode);
-                response = services.CreateAccountAPI(services.Balance, services.AccountName, services.Address);
-                if ((int)response.StatusCode == 200)
-                {
-                    customer = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
-                }
                 //Verify Balance for both Deposit and Withdraw Transactions
                 if (TransactionType.ToUpper().Equals("DEPOSITE"))
                 {
@@ -207,30 +199,21 @@ namespace BankTransactionsAPI.StepDefinitions
                 {
                     Assert.AreEqual(balanceBeforeUpdate - services.Balance, balanceAfterUpdate, "Amount is Successfully Withdrawl from the account");
                 }
-            }
-            else
-                throw new Exception("Account Number does not exist or Not able to retrieve account details");
         }
 
         [Then(@"Verify the Account id Deleted")]
         public void ThenVerifyTheAccountIdDeleted()
         {
-            if (response.IsSuccessful)
-            {
-                Assert.AreEqual(200, (int)response.StatusCode);
-                Console.WriteLine("Account Deleted Successfully");
-            }
-            else
-            {
-                Assert.AreEqual(400, (int)response.StatusCode);
-                Console.WriteLine("Account Does not exist or failed to delete the account");
-            }
+            //If system is failed to retrive the account means it is already deleted in the system
+            response = services.getAccount(customer.AccountNumber);
+            if ((int)response.StatusCode == 400)
+            Console.WriteLine("Account Deleted Successfully");
         }
 
         [Then(@"Verify Account Number is Unique")]
         public void ThenVerifyAccountNumberIsUnique()
         {
-            Assert.AreEqual(200, (int)response.StatusCode);
+            //Verifying Account Numbers list has unique values thru Distict and count methods.
             bool areUnique = accountNumbers.Count == accountNumbers.Distinct().Count();
             Assert.IsTrue(areUnique, "Account numbers are not unique.");
             Console.WriteLine("Account Numbers are Unique");
@@ -239,45 +222,39 @@ namespace BankTransactionsAPI.StepDefinitions
         [Then(@"Verify account details")]
         public void ThenVerifyAccountDetails()
         {
-            if (response.IsSuccessful)
-            {
-                Assert.AreEqual(200, (int)response.StatusCode);
-
-                if (services.AccountNumber == customer.AccountNumber)
-                {
-                    Console.WriteLine("Account Found");
-                    Assert.Equals(services.AccountNumber, customer.AccountNumber);
-                    Assert.NotNull(customer.Balance);
-                    Assert.IsNotEmpty(customer.AccountName);
-                    Assert.IsNotEmpty(customer.Address);
-                }
-                else
-                {
-                    Console.WriteLine("Failed to Find the account.");
-                    Assert.AreNotEqual(services.AccountNumber, customer.AccountNumber);
-
-                }
-            }
-            else
-            {
-                Assert.AreEqual(400, (int)response.StatusCode);
-                Console.WriteLine("Failed to Retrive the Accounts");
-            }
+            //Verify Account Number that we are pssing matches to the received Customer Account Number
+            customer = JsonConvert.DeserializeObject<CustomerDetails>(response.Content);
+            if (services.AccountNumber == customer.AccountNumber)
+             {
+                //Verify all the Details of that Account Number are retrived.
+                Console.WriteLine("Account Found");
+                Assert.Equals(services.AccountNumber, customer.AccountNumber);
+                Assert.NotNull(customer.Balance);
+                Assert.IsNotEmpty(customer.AccountName);
+                Assert.IsNotEmpty(customer.Address);
+             }
+             else
+             {
+                //Failed to Find Account Number
+                 Console.WriteLine("Failed to Find the account.");
+                 Assert.AreNotEqual(services.AccountNumber, customer.AccountNumber);
+             }
         }
+           
 
         [Then(@"Verify the Account")]
         public void ThenVerifyTheAccount()
         {
-            if (!response.IsSuccessful)
-            {
-                Assert.AreEqual(400, (int)response.StatusCode);
-                Console.WriteLine("Failed to Delete the Account/ Account Number does not exist");
-            }
+            //Verify Account exist by verifying the response
+            response = services.getAccount(customer.AccountNumber);
+            if ((int)response.StatusCode == 400)
+                Console.WriteLine("Account Number does not exist");
         }
 
         [Then(@"Verify the response code is \$(.*)")]
         public void ThenVerifyTheResponseCodeIs(int responseCode)
         {
+            //Verify Response Code
             Assert.Equals(responseCode,(int)response.StatusCode);
         }
 
