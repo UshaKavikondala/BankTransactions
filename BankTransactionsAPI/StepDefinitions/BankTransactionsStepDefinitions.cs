@@ -251,12 +251,13 @@ namespace BankTransactionsAPI.StepDefinitions
                 Console.WriteLine("Account Number does not exist");
         }
 
-        [Then(@"Verify the response code is \$(.*)")]
+        [Then(@"Verify the response code is (.*)")]
         public void ThenVerifyTheResponseCodeIs(int responseCode)
         {
             //Verify Response Code
             Assert.Equals(responseCode,(int)response.StatusCode);
         }
+        
 
     }
 }

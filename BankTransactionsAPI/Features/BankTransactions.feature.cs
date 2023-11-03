@@ -119,7 +119,7 @@ this.FeatureBackground();
     testRunner.When("Create a new account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 14
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 15
     testRunner.And("Verify Account Creation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -165,7 +165,7 @@ this.FeatureBackground();
     testRunner.When("Create a new account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 24
     testRunner.And("Verify Account Creation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -222,7 +222,7 @@ this.FeatureBackground();
     testRunner.When("Create a new account for Multiple Users", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 32
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 33
     testRunner.And("Verify Account Number is Unique", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -268,7 +268,7 @@ this.FeatureBackground();
     testRunner.When("Create a new account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 47
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 48
     testRunner.And("Verify Account Creation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -314,7 +314,7 @@ this.FeatureBackground();
     testRunner.When("Create a new account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 56
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 57
     testRunner.And("Verify Account Creation", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -362,7 +362,7 @@ this.FeatureBackground();
     testRunner.When("\"Deposit\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 63
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 64
     testRunner.And("Verify the Balance in the Account After \"Deposit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -411,7 +411,7 @@ this.FeatureBackground();
     testRunner.When("\"Deposit\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 74
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 75
     testRunner.And("Verify the Balance in the Account After \"Deposit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -454,7 +454,7 @@ this.FeatureBackground();
     testRunner.When("\"Deposit\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 88
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 89
     testRunner.And("Verify the Balance in the Account After \"Deposit\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -494,7 +494,7 @@ this.FeatureBackground();
     testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 95
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 96
     testRunner.And("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -534,7 +534,7 @@ this.FeatureBackground();
     testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 102
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 103
     testRunner.And("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -574,7 +574,7 @@ this.FeatureBackground();
     testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 109
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 110
     testRunner.And("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -614,7 +614,7 @@ this.FeatureBackground();
     testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 116
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 117
     testRunner.And("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -657,7 +657,7 @@ this.FeatureBackground();
     testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 124
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 125
     testRunner.And("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -697,7 +697,7 @@ this.FeatureBackground();
     testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 131
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 132
     testRunner.And("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -737,7 +737,7 @@ this.FeatureBackground();
     testRunner.When("\"Withdraw\" Amount", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 138
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 139
     testRunner.And("Verify the Balance in the Account After \"Withdraw\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -774,7 +774,7 @@ this.FeatureBackground();
  testRunner.When("Delete Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 144
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 145
     testRunner.And("Verify the Account id Deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -814,7 +814,7 @@ this.FeatureBackground();
     testRunner.When("Delete Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 151
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 152
     testRunner.And("Verify the Account id Deleted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -863,7 +863,7 @@ this.FeatureBackground();
     testRunner.When("Delete Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 158
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 159
     testRunner.And("Verify the Account", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -900,7 +900,7 @@ this.FeatureBackground();
     testRunner.When("Get Account Details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 170
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 171
     testRunner.And("Verify account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -949,7 +949,7 @@ this.FeatureBackground();
     testRunner.When("Get Account Details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 177
-    testRunner.Then("Verify the response code is $200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 200", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 178
     testRunner.And("Verify account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -989,7 +989,7 @@ this.FeatureBackground();
     testRunner.When("Get Account Details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 190
-    testRunner.Then("Verify the response code is $400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+    testRunner.Then("Verify the response code is 400", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 191
     testRunner.And("Verify account details", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
