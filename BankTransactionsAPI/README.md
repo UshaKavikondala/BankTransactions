@@ -37,18 +37,17 @@ The Framework built with below main packages
 - Create Multiple Accounts
 - Create Account With Balance Greater Than Transaction Limit
 - Create Account With Negative Balance
-- Deposite Amount to Account with Valid Values
-- Deposit A Negative Amount
-- Deposit Amount Greater Than Transaction Limit
+- Deposit Amount - By sending Valid Amounts
+- Deposit Amount - By sending Invalid Amounts
 - Deposit Amount To NonExisting Account
-- Withdraw Amount to Account with Valid Values
+- Withdraw Amount with Valid Data
 - Withdraw NegativeAmount
 - Withdraw Amount Greater Than the Account Balance
 - Withdraw Amount more than 90% of the Account Balance
 - Withdraw Amount From NonExisting Account
 - Withdraw Amount With A Balance Less Than Minimum Required
 - Withdraw Amount If Balance is Less then $100
-- Delete Account
+- Delete Account with Valid Account Number
 - Delete Nonexisting Acoount 
 - Delete Multiple Accounts
 - View the Required Account Details 
